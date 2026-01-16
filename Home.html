@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UnitedPath Community Hub</title>
+
+<style>
+
+/* =====================
+   RESET + GLOBAL
+===================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #f5f7fa;
+    color: #333;
+    overflow-x: hidden;
+}
+
+/* =====================
+   NAV BAR
+===================== */
+.top-bar {
+    background-color: rgba(15, 42, 68, 0.95);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000; 
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.site-title {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 25px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.nav-links a:hover {
+    border-bottom: 2px solid #f4b41a;
+}
+
+/* =====================
+   HERO PARALLAX (LAYERED)
+===================== */
+.hero {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url("ecomp.png");
+    background-size: cover;
+    background-position: center;
+    transform: translateZ(0);
+    will-change: transform;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        rgba(15,42,68,0.45),
+        rgba(15,42,68,0.75)
+    );
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 40px;
+}
+
+/* =====================
+   HERO TITLE ANIMATION
+===================== */
+.hero-title {
+    font-size: 3.2rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.hero-title span {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(35px);
+    animation: wordFade 0.9s ease forwards;
+}
+
+.hero-title span:nth-child(n) {
+    animation-delay: calc(var(--i) * 0.15s);
+}
+
+@keyframes wordFade {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    max-width: 720px;
+    margin: 0 auto 15px;
+    opacity: 0;
+    animation: fadeUp 1s ease forwards;
+    animation-delay: 1.3s;
+}
+
+.hero-trust {
+    font-size: 0.95rem;
+    opacity: 0;
+    animation: fadeUp 1s ease forwards;
+    animation-delay: 1.7s;
+}
+
+.hero-buttons {
+    margin-top: 30px;
+}
+
+.hero-buttons a {
+    display: inline-block;
+    margin: 10px;
+    padding: 14px 30px;
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards;
+}
+
+.hero-buttons a:nth-child(1) {
+    background-color: #f4b41a;
+    color: #0f2a44;
+    animation-delay: 2.1s;
+}
+
+.hero-buttons a:nth-child(2) {
+    border: 2px solid white;
+    color: white;
+    animation-delay: 2.4s;
+}
+/* ===== MAP ===== */
+.map-container {
+    width: 100%;
+    max-width: 1000px;
+    height: 450px;
+    margin: 40px auto 0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =====================
+   SECTION BASE
+===================== */
+.section {
+    position: relative;
+    padding: 100px 30px;
+    max-width: 1200px;
+    margin: auto;
+    z-index: 2;
+}
+
+.section.light {
+    background-color: white;
+}
+
+.section h2 {
+    font-size: 2.3rem;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.section p.center {
+    text-align: center;
+    max-width: 760px;
+    margin: auto;
+    font-size: 1.05rem;
+}
+
+/* =====================
+   SECTION PARALLAX BACKDROP
+===================== */
+.section-parallax {
+    position: absolute;
+    inset: -120px 0;
+    background: radial-gradient(circle at center,
+        rgba(244,180,26,0.08),
+        transparent 65%);
+    z-index: -1;
+    transform: translateY(0);
+    will-change: transform;
+}
+
+/* =====================
+   HOW IT HELPS
+===================== */
+.help-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.help-box {
+    background: white;
+    padding: 35px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+}
+
+/* =====================
+   FEATURED RESOURCES
+===================== */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+    gap: 25px;
+    margin-top: 50px;
+}
+
+.card {
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 20px;
+}
+
+/* =====================
+   MAP PREVIEW
+===================== */
+.map-preview {
+    margin-top: 40px;
+    height: 320px;
+    background: #d9e3ea;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    color: #0f2a44;
+}
+
+/* =====================
+   FOOTER
+===================== */
+footer {
+    background-color: #0f2a44;
+    color: white;
+    padding: 35px;
+    text-align: center;
+}
+
+/* =====================
+   EXTRA DEPTH EFFECT
+===================== */
+.depth-divider {
+    height: 120px;
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(15,42,68,0.05)
+    );
+}
+
+</style>
+</head>
+
+<body>
+
+<header class="top-bar">
+    <div class="nav-container">
+        <div class="site-title">UnitedPath</div>
+        <ul class="nav-links">
+           <li><a href="Home.html">Home</a></li>
+                    <li><a href="directory.html" class="active">Resource Directory</a></li>
+                    <li><a href="featured.html">Featured Resources</a></li>
+                    <li><a href="submit.html">Submit a Resource</a></li>
+                    <li><a href="reference.html">References</a></li>
+        </ul>
+    </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-bg" id="heroBg"></div>
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+        <div>
+            <h1 class="hero-title">
+                <span style="--i:1">United</span>
+                <span style="--i:2">Path</span>
+                <span style="--i:3">Community</span>
+                <span style="--i:4">Hub</span>
+            </h1>
+
+            <p class="hero-subtitle">
+                Connecting residents to trusted local resources, services,
+                and community support — all in one place.
+            </p>
+
+            <p class="hero-trust">
+                Verified organizations • Easy access • Community-driven
+            </p>
+
+            <div class="hero-buttons">
+                <a href="directory.html">Explore Resources</a>
+                <a href="submit.html">Submit a Resource</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="depth-divider"></div>
+
+<!-- HOW IT HELPS -->
+<section class="section light">
+    <div class="section-parallax" data-speed="0.3"></div>
+
+    <h2>How UnitedPath Helps</h2>
+    <p class="center">
+        UnitedPath simplifies access to essential services while strengthening
+        connections between residents and community organizations.
+    </p>
+
+    <div class="help-grid">
+        <div class="help-box">Find Help Quickly</div>
+        <div class="help-box">Support Local Non-Profits</div>
+        <div class="help-box">Access Nearby Services</div>
+        <div class="help-box">Contribute to the Community</div>
+    </div>
+</section>
+
+<!-- FEATURED -->
+<section class="section">
+    <div class="section-parallax" data-speed="0.2"></div>
+
+    <h2>Featured Community Resources</h2>
+
+    <div class="card-grid">
+        <div class="card">
+            <img src="foode.png">
+            <div class="card-content">Pathway Pantry</div>
+        </div>
+
+        <div class="card">
+            <img src="elderlyhealth.png">
+            <div class="card-content">Unity Health Services</div>
+        </div>
+
+        <div class="card">
+            <img src="education.png">
+            <div class="card-content">Bright Futures Education</div>
+        </div>
+    </div>
+</section>
+
+<!-- MAP -->
+<section class="section light">
+    <div class="section-parallax" data-speed="0.15"></div>
+
+    <h2>Find Resources Near You</h2>
+    
+    <p class="center">
+        Use our interactive map to locate nearby community services and organizations.
+    </p>
+
+    <div class="map-container">
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24495.80228369262!2d-75.603122!3d39.87479149999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c6fa422767c4eb%3A0x56a91e55078361a2!2sChadds%20Ford%2C%20PA!5e0!3m2!1sen!2sus!4v1737154265845!5m2!1sen!2sus"
+            allowfullscreen
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 UnitedPath Community Hub | TSA Webmaster</p>
+</footer>
+
+<script>
+/* =====================
+   TRUE SCROLL PARALLAX
+===================== */
+window.addEventListener("scroll", () => {
+    const scrollY = window.scrollY;
+
+    // HERO background moves slower than page
+    document.getElementById("heroBg").style.transform =
+        `translateY(${scrollY * 0.35}px)`;
+
+    // Section parallax layers
+    document.querySelectorAll(".section-parallax").forEach(layer => {
+        const speed = layer.dataset.speed;
+        layer.style.transform = `translateY(${scrollY * speed * -0.25}px)`;
+    });
+});
+</script>
+
+</body>
+</html>

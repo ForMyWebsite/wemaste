@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>References | Community Resource Hub</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* ===== NAV BAR ===== */
+        .top-bar {
+            background-color: #0f2a44;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .site-title {
+            color: white;
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 25px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .nav-links a.active,
+        .nav-links a:hover {
+            border-bottom: 2px solid #f4b41a;
+        }
+
+        /* ===== PAGE HEADER ===== */
+        .page-header {
+            margin-top: 90px;
+            padding: 60px 30px;
+            text-align: center;
+            background-color: #ffffff;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1s ease;
+        }
+
+        .page-header.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .page-header h1 {
+            font-size: 2.4rem;
+            margin-bottom: 12px;
+        }
+
+        .page-header p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: auto;
+        }
+
+        /* ===== REFERENCE CONTAINER ===== */
+        .reference-container {
+            max-width: 900px;
+            margin: 50px auto 90px;
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease;
+        }
+
+        .reference-container.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reference-container h2 {
+            margin-bottom: 18px;
+            color: #0f2a44;
+        }
+
+        .reference-container ul {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .reference-container li {
+            margin-bottom: 14px;
+            line-height: 1.6;
+        }
+
+        .reference-container a {
+            color: #0f2a44;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .reference-container a:hover {
+            text-decoration: underline;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background-color: #0f2a44;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- ===== NAV BAR ===== -->
+<header class="top-bar">
+    <div class="nav-container">
+        <div class="site-title">Community Resource Hub</div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="Home.html">Home</a></li>
+                <li><a href="directory.html">Resource Directory</a></li>
+                <li><a href="featured.html">Featured Resources</a></li>
+                <li><a href="submit.html">Submit a Resource</a></li>
+                <li><a href="reference.html" class="active">References</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- ===== PAGE HEADER ===== -->
+<section class="page-header animate">
+    <h1>References & Documentation</h1>
+    <p>
+        This page lists all sources used in creating the Community Resource Hub
+        website, including images, data, and materials requiring permission.
+    </p>
+</section>
+
+<!-- ===== REFERENCE LIST ===== -->
+<div class="reference-container animate">
+    <h2>Sources & References</h2>
+    <ul>
+        <li>
+Google Maps            <a href="https://www.google.com/maps" target="_blank">Google Maps</a>
+        </li>
+        <li>
+Helping Hands Image            <a href="https://www.midlandtoday.ca/cares/news/for-the-next-three-days-have-your-donation-to-the-georgian-bay-food-network-matched-three-times-6219770" target="_blank">Helping Hands Image</a>
+        </li>
+        <li>
+WellCare Health Alliance Image            <a href="https://www.facebook.com/WellCareHealth/" target="_blank">WellCare Health Alliance</a>
+        </li>
+        <li>
+Future Steps Dayare Image            <a href="https://www.futurestepsdaycare.org/" target="_blank">Future Steps Dayare Image g</a>
+        </li>
+        <li>
+Family First network            <a href="https://careers.familiesfirstnetwork.org/" target="_blank">Family First network </a>
+        </li>
+        <li>
+Carelisting            <a href="https://carelistings.com/homecare/racine-wi/golden-path-services-ii/5ad3ac66f8caad06f126d596 " target="_blank">Carelisting </a>
+       </li>
+ <li>
+Career Launch            <a href="       https://www.facebook.com/careerlaunchuk/" target="_blank">Career Launch </a>
+       </li>
+ <li>
+    Helping Hands Featured            <a href="https://www.helpinghandstoday.org/ " target="_blank">Helping Hands Featured </a>
+       </li>
+       <li>
+   Banner 2            <a href="https://inside.scc.losrios.edu/collegewide/tutoring" target="_blank">Banner 2 </a>
+       </li>
+
+    </ul>
+
+    <h2>Required TSA Documents</h2>
+    <ul>
+        <li>
+            <a href="https://docs.google.com/document/d/1evfZWZ8lwqEo0lHlQpF6KZiAos8bpH6nMauQDjFUeZY/edit?tab=t.0" target="_blank">Work Log (PDF)</a>
+        </li>
+        <li>
+            <a href="https://docs.google.com/document/d/1OWisVrt9RzDyezEKMltSjGnFoRVlFG_J07M-DS_SHXI/edit?tab=t.0" target="_blank">
+                Student Copyright Checklist (PDF)
+            </a>
+        </li>
+    </ul>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+    <p>© 2026 Community Resource Hub | TSA Webmaster</p>
+</footer>
+
+<!-- ===== SCROLL ANIMATION SCRIPT ===== -->
+<script>
+    const animatedElements = document.querySelectorAll('.animate');
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+            }
+        });
+    }, { threshold: 0.2 });
+
+    animatedElements.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

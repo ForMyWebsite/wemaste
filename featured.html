@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Featured Resources | UnitedPath Community Hub</title>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+body {
+    background-color: #f5f7fa;
+    color: #333;
+    overflow-x: hidden;
+}
+
+/* ===== NAV BAR ===== */
+.top-bar {
+    background-color: #0f2a44;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+.nav-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.site-title {
+    color: white;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+.nav-links li {
+    margin-left: 25px;
+}
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+}
+.nav-links a.active,
+.nav-links a:hover {
+    border-bottom: 2px solid #f4b41a;
+}
+
+/* ===== PAGE HEADER ===== */
+.page-header {
+    padding: 180px 30px 80px 30px;
+    text-align: center;
+    background-color: #0f2a44;
+    color: #ffffff;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    margin-top: 0;
+    overflow: hidden;
+}
+.page-header h1, .page-header p {
+    display: block;
+}
+.page-header h1 {
+    font-size: 3rem; /* Bigger title */
+    margin-bottom: 10px;
+}
+.line {
+    display: block;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s forwards;
+}
+
+/* ===== FEATURE SECTIONS ===== */
+.feature-section {
+    max-width: 1200px;
+    margin: auto;
+    padding: 60px 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    overflow: hidden;
+}
+.feature-section:nth-child(even) {
+    background-color: #ffffff;
+}
+.feature-image img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+.feature-content h2, .feature-content p, .feature-content ul li {
+    display: block;
+}
+.feature-content h2 .line, 
+.feature-content p .line, 
+.feature-content ul li .line {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s forwards;
+}
+.feature-content a {
+    font-weight: bold;
+    color: #0f2a44;
+    text-decoration: none;
+}
+
+/* ===== STATS HIGHLIGHT ===== */
+.stats-section {
+    max-width: 1200px;
+    margin: 60px auto 90px;
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.stat-card {
+    background-color: #f4b41a;
+    color: #0f2a44;
+    flex: 1 1 200px;
+    padding: 30px 20px;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    transform: translateY(40px);
+    opacity: 0;
+}
+.stat-card h3 {
+    font-size: 2rem;
+    margin-bottom: 8px;
+}
+.stat-card p {
+    font-size: 1rem;
+}
+
+/* ===== BOTTOM INFO ===== */
+.bottom-section {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 50px 30px;
+    text-align: center;
+    background: linear-gradient(rgba(15,42,68,0.85), rgba(15,42,68,0.85)), url('community-bg.jpg') center/cover no-repeat;
+    color: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    overflow: hidden;
+}
+.bottom-section h2, .bottom-section p {
+    display: block;
+}
+.bottom-section h2 .line, .bottom-section p .line {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s forwards;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    background-color: #0f2a44;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* ===== KEYFRAME ANIMATIONS ===== */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .feature-section {
+        grid-template-columns: 1fr;
+    }
+    .stats-section {
+        flex-direction: column;
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== NAV BAR ===== -->
+<header class="top-bar">
+    <div class="nav-container">
+        <div class="site-title">UnitedPath Community Hub</div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="Home.html">Home</a></li>
+                <li><a href="directory.html">Resource Directory</a></li>
+                <li><a href="featured.html" class="active">Featured Resources</a></li>
+                <li><a href="submit.html">Submit a Resource</a></li>
+                <li><a href="reference.html">References</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- ===== PAGE HEADER ===== -->
+<section class="page-header">
+    <h1 id="header-title">
+        Featured Community Resources
+    </h1>
+    <p id="header-subtitle">
+        These organizations and programs play a vital role in supporting the well-being, education, and success of our community members.
+    </p>
+</section>
+
+<!-- ===== FEATURED RESOURCE 1 ===== -->
+<section class="feature-section">
+    <div class="feature-image">
+        <img src="hh2.png" alt="Helping Hands Food Program">
+    </div>
+    <div class="feature-content">
+        <h2>Helping Hands Food Program</h2>
+        <p>
+            Provides emergency food and groceries to local families and individuals in need.
+        </p>
+        <ul>
+            <li>Weekly community food drives</li>
+            <li>Nutrition workshops</li>
+            <li>Volunteer opportunities for students and residents</li>
+        </ul>
+        <a href="directory.html#HelpingHands">View in Resource Directory →</a>
+    </div>
+</section>
+
+<!-- ===== FEATURED RESOURCE 2 ===== -->
+<section class="feature-section">
+    <div class="feature-image">
+        <img src="Wellcares.png" alt="WellCare Health Alliance">
+    </div>
+    <div class="feature-content">
+        <h2>WellCare Health Alliance</h2>
+        <p>
+            Offers affordable healthcare and wellness programs to support mental and physical health.
+        </p>
+        <ul>
+            <li>Low-cost medical checkups</li>
+            <li>Mental health counseling</li>
+            <li>Community wellness workshops</li>
+        </ul>
+        <a href="directory.html#WellCare">View in Resource Directory →</a>
+    </div>
+</section>
+
+<!-- ===== FEATURED RESOURCE 3 ===== -->
+<section class="feature-section">
+    <div class="feature-image">
+        <img src="fs.png" alt="Future Steps Daycare">
+    </div>
+    <div class="feature-content">
+        <h2>Future Steps Daycare</h2>
+        <p>
+            Provides quality daycare and early education programs for children in the community.
+        </p>
+        <ul>
+            <li>After-school enrichment programs</li>
+            <li>Early childhood development curriculum</li>
+            <li>Parent support resources</li>
+        </ul>
+        <a href="directory.html#FutureSteps">View in Resource Directory →</a>
+    </div>
+</section>
+
+<!-- ===== STATS HIGHLIGHT ===== -->
+<section class="stats-section">
+    <div class="stat-card"><h3>1,500+</h3><p>Total Volunteering Hours</p></div>
+    <div class="stat-card"><h3>90+</h3><p>Community Events Hosted</p></div>
+    <div class="stat-card"><h3>60+</h3><p>Active Resources Listed</p></div>
+    <div class="stat-card"><h3>550+</h3><p>Residents Supported</p></div>
+</section>
+
+<!-- ===== BOTTOM INFO ===== -->
+<section class="bottom-section">
+    <h2>Why Our Featured Resources Matter</h2>
+    <p>
+        UnitedPath Community Hub highlights these resources to ensure residents have access to essential support networks, educational programs, and health services. Explore the directory for more resources, and help strengthen our community by sharing opportunities with friends and neighbors.
+    </p>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+    <p>© 2026 UnitedPath Community Hub | TSA Webmaster</p>
+</footer>
+
+<script>
+// Function to split text into lines wrapped in span for animation
+function splitLines(element) {
+    const lines = element.textContent.split(/\n|\. /).filter(l => l.trim() !== "");
+    element.innerHTML = lines.map(line => `<span class="line">${line}</span>`).join('<br>');
+}
+
+// Apply line animations
+splitLines(document.getElementById("header-title"));
+splitLines(document.getElementById("header-subtitle"));
+document.querySelectorAll(".feature-section h2, .feature-section p, .feature-section ul li, .bottom-section h2, .bottom-section p").forEach(splitLines);
+
+// Intersection Observer to animate lines on scroll
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            entry.target.querySelectorAll(".line").forEach((span,i)=>{
+                span.style.animationDelay = `${i*0.15}s`;
+                span.style.animationName = "fadeInUp";
+            });
+            entry.target.classList.add('show');
+        }
+    });
+},{threshold:0.2});
+
+document.querySelectorAll(".page-header, .feature-section, .stats-section, .bottom-section").forEach(el=>observer.observe(el));
+
+// Stats counter animation on hover
+const statCards = document.querySelectorAll(".stat-card");
+statCards.forEach(card=>{
+    let value = parseInt(card.querySelector("h3").textContent.replace(/\D/g,'')); 
+    let current = 0;
+    let increment = Math.ceil(value / 100);
+    card.addEventListener("mouseenter", ()=>{
+        let counter = setInterval(()=>{
+            current += increment;
+            if(current>=value){
+                current=value;
+                clearInterval(counter);
+            }
+            card.querySelector("h3").textContent = current + "+";
+        }, 20);
+    });
+});
+</script>
+
+</body>
+</html>

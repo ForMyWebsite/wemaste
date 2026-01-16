@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit a Resource | Community Resource Hub</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+        }
+
+        /* ===== NAV BAR ===== */
+        .top-bar {
+            background-color: #0f2a44;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .site-title {
+            color: white;
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 25px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .nav-links a.active,
+        .nav-links a:hover {
+            border-bottom: 2px solid #f4b41a;
+        }
+
+        /* ===== PAGE HEADER ===== */
+        .page-header {
+            margin-top: 80px;
+            padding: 50px 30px;
+            text-align: center;
+            background-color: #ffffff;
+        }
+
+        .page-header h1 {
+            font-size: 2.4rem;
+            margin-bottom: 10px;
+        }
+
+        .page-header p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: auto;
+        }
+
+        /* ===== FORM ===== */
+        .form-container {
+            max-width: 700px;
+            margin: 40px auto 80px;
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #0f2a44;
+        }
+
+        form input,
+        form select,
+        form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 1rem;
+        }
+
+        form textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        form button {
+            padding: 12px 25px;
+            font-size: 1rem;
+            font-weight: bold;
+            background-color: #f4b41a;
+            color: #0f2a44;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #e0a915;
+        }
+
+        /* SUCCESS MESSAGE */
+        #successMsg {
+            display: none;
+            text-align: center;
+            padding: 15px;
+            background-color: #d4edda;
+            color: #155724;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background-color: #0f2a44;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== NAV BAR ===== -->
+    <header class="top-bar">
+        <div class="nav-container">
+            <div class="site-title">Community Resource Hub</div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="Home.html">Home</a></li>
+                    <li><a href="directory.html">Resource Directory</a></li>
+                    <li><a href="featured.html">Featured Resources</a></li>
+                    <li><a href="submit.html" class="active">Submit a Resource</a></li>
+                    <li><a href="reference.html">References</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== PAGE HEADER ===== -->
+    <section class="page-header">
+        <h1>Submit a New Resource</h1>
+        <p>
+            Help us expand our Community Resource Hub by submitting local
+            organizations, services, or programs that benefit residents.
+        </p>
+    </section>
+
+    <!-- ===== FORM SECTION ===== -->
+    <div class="form-container">
+        <div id="successMsg">Thank you! Your resource has been submitted successfully.</div>
+
+        <form id="resourceForm">
+            <label for="name">Resource Name *</label>
+            <input type="text" id="name" placeholder="Enter the name of the resource" required>
+
+            <label for="category">Category *</label>
+            <select id="category" required>
+                <option value="">Select a category</option>
+                <option value="Food">Food Assistance</option>
+                <option value="Health">Health Services</option>
+                <option value="Education">Education</option>
+                <option value="Housing">Housing</option>
+                <option value="Employment">Employment</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <label for="description">Description *</label>
+            <textarea id="description" placeholder="Briefly describe the resource" required></textarea>
+
+            <label for="contact">Contact Information *</label>
+            <input type="text" id="contact" placeholder="Phone number, email, or address" required>
+
+            <label for="website">Website / Link</label>
+            <input type="url" id="website" placeholder="https://example.com">
+
+            <button type="submit">Submit Resource</button>
+        </form>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <p>© 2026 Community Resource Hub | TSA Webmaster</p>
+    </footer>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        const form = document.getElementById('resourceForm');
+        const successMsg = document.getElementById('successMsg');
+
+        form.addEventListener('submit', function(e){
+            e.preventDefault(); // Prevent actual form submission
+
+            // Simple Validation (already required fields are enforced)
+            const name = document.getElementById('name').value.trim();
+            const category = document.getElementById('category').value;
+            const description = document.getElementById('description').value.trim();
+            const contact = document.getElementById('contact').value.trim();
+
+            if(name && category && description && contact){
+                // In real site, you would send this to a server
+                successMsg.style.display = 'block';
+                form.reset();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+                alert("Please fill in all required fields.");
+            }
+        });
+    </script>
+
+</body>
+</html>
